@@ -8,6 +8,7 @@ router.get("/", withAuth, async (req, res) => {
       attributes: { exclude: ["password"] },
       order: [["name", "ASC"]],
       raw: true,
+      nest: true,
     });
 
     res.render("homepage", {

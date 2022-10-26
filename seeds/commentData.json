@@ -1,0 +1,12 @@
+[
+    {
+        "description": "very nice!",
+        "user_id": 1,
+        "post_id": 2
+    },
+    {
+        "description": "wow!",
+        "user_id": 2,
+        "post_id": 1
+    }
+]
