@@ -21,8 +21,8 @@ Post.init(
       allowNull: false,
     },
     date: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -30,14 +30,6 @@ Post.init(
       references: {
         model: "user",
         key: "id",
-      },
-    },
-    user_name: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "user",
-        key: "name",
       },
     },
   },
