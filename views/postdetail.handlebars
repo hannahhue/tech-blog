@@ -1,11 +1,11 @@
-{{#each postData }}
+
 {{!-- card input --}}
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{this.title}}</li>
-    <li class="list-group-item">{{this.description}}</li>
-    <li class="list-group-item">{{this.user.username}}</li>
-    <li class="list-group-item">{{this.date}}</li>
+    <li class="list-group-item">{{postData.title}}</li>
+    <li class="list-group-item">{{postData.description}}</li>
+    <li class="list-group-item">{{postData.user.username}}</li>
+    <li class="list-group-item">{{postData.date}}</li>
   </ul>
 </div>
 
@@ -13,8 +13,7 @@
 <form>
   <div class="form-group">
   <div class="form-group">Comment</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="text" class="form-control" id="exampleInputText">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-{{/each}}

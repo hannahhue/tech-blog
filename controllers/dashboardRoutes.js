@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Post } = require("../models");
 const withAuth = require("../utils/auth");
 
-router.get("/dashboard/:id", withAuth, async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: {
@@ -13,6 +13,8 @@ router.get("/dashboard/:id", withAuth, async (req, res) => {
       nest: true,
     });
 
+    console.log(postData);
+
     res.render("postdetail", {
       postData,
       logged_in: req.session.logged_in,
@@ -21,3 +23,5 @@ router.get("/dashboard/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
