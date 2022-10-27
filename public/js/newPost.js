@@ -6,12 +6,17 @@ async function newPost(event) {
     .querySelector("#exampleInputDescription")
     .value.trim();
 
-  if (descriptionText) {
+  if (title && description) {
     const response = await fetch("/dashboard/post", {
       method: "POST",
       body: JSON.stringify({ title, description, user_id: userId }),
       headers: { "Content-Type": "application/json" },
     });
+    if (response.ok) {
+      document.location.replace("/");
+    } else {
+      alert("failed to post ):");
+    }
   }
 }
 

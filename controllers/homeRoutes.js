@@ -34,7 +34,7 @@ router.get("/login", (req, res) => {
 
 router.get("/dashboard", withAuth, (req, res) => {
   try {
-    res.render("dashbard", {
+    res.render("dashboard", {
       user_id: req.session.user_id,
       logged_in: req.session.logged_in,
     });
