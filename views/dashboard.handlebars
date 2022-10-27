@@ -11,6 +11,16 @@
   <button id="submit" type="submit" class="btn btn-primary">Post</button>
 </form>
 
+{{#each userPosts}}
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{this.title}}</li>
+    <li class="list-group-item">{{this.date}}</li>
+    <a href="/dashboard/{{this.id}}">View Post</a>
+  </ul>
+</div>
+{{/each}}
+
 <script>
   const userId = {{user_id}}
 </script>

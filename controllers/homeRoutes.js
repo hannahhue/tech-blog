@@ -32,9 +32,15 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/dashboard", withAuth, (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
+    const userPosts = await Post.findAll({
+      where: { user_id: req.session.user_id },
+      raw: true,
+    });
+    console.log(userPosts);
     res.render("dashboard", {
+      userPosts,
       user_id: req.session.user_id,
       logged_in: req.session.logged_in,
     });
