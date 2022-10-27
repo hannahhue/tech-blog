@@ -15,5 +15,16 @@
   <div class="form-group">Comment</label>
     <input type="text" class="form-control" id="exampleInputText">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
 </form>
+
+{{!-- posted comments --}}
+
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{postData.comments.description}}</li>
+    <li class="list-group-item">{{postData.user.username}}</li>
+  </ul>
+</div>
+
+<script src="/js/comment.js"></script>
