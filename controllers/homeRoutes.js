@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
   try {
-    const userData = await Post.findAll({
+    const postData = await Post.findAll({
       include: {
         model: User,
         attributes: ["username"],
@@ -13,10 +13,8 @@ router.get("/", withAuth, async (req, res) => {
       nest: true,
     });
 
-    console.log(userData);
-
     res.render("homepage", {
-      userData,
+      postData,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
