@@ -16,6 +16,7 @@ router.get("/", withAuth, async (req, res) => {
     res.render("homepage", {
       postData,
       logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -29,6 +30,17 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+});
+
+router.get("/dashboard", withAuth, (req, res) => {
+  try {
+    res.render("dashbard", {
+      user_id: req.session.user_id,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
