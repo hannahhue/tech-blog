@@ -1,3 +1,4 @@
+//create form and check
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -19,6 +20,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+//create form and check
 const signupFormHandler = async (event) => {
   event.preventDefault();
 

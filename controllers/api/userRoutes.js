@@ -1,6 +1,8 @@
+//define
 const router = require("express").Router();
 const { User } = require("../../models");
 
+//create home pg posts
 router.post("/", async (req, res) => {
   try {
     const dbUserData = await User.create(req.body);
@@ -16,6 +18,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//login
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -30,14 +33,14 @@ router.post("/login", async (req, res) => {
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
-
+    //check
     if (!validPassword) {
       res
         .status(400)
         .json({ message: "Incorrect username or password, please try again" });
       return;
     }
-
+    //save
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -49,6 +52,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//logout
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

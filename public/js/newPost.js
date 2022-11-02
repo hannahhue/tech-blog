@@ -1,3 +1,4 @@
+//create new input when clicked
 async function newPost(event) {
   event.preventDefault();
   const title = document.querySelector("#exampleInputTitle").value.trim();

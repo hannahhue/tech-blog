@@ -1,3 +1,4 @@
+//create input form
 function openMenu(event) {
   event.preventDefault();
 
@@ -24,6 +25,7 @@ function openMenu(event) {
   });
 }
 
+//take info from form and replace old info
 async function editPost(event) {
   event.preventDefault();
 
