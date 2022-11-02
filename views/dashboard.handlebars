@@ -17,6 +17,10 @@
     <li class="list-group-item">{{this.title}}</li>
     <li class="list-group-item">{{this.date}}</li>
     <a href="/dashboard/{{this.id}}">View Post</a>
+    <button id="{{this.id}}" class="deletebtn">Delete</button>
+    <button id="{{this.id}}" class="editbtn">Edit</button>
+    <div id="formHolder"></div>
+
   </ul>
 </div>
 {{/each}}
@@ -26,3 +30,6 @@
 </script>
 
 <script src="/js/newPost.js"></script>
+<script src="/js/delete.js"></script>
+<script src="/js/editPost.js"></script>
+

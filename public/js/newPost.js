@@ -7,7 +7,7 @@ async function newPost(event) {
     .value.trim();
 
   if (title && description) {
-    const response = await fetch("/dashboard/post", {
+    const response = await fetch("/api/post", {
       method: "POST",
       body: JSON.stringify({ title, description, user_id: userId }),
       headers: { "Content-Type": "application/json" },
